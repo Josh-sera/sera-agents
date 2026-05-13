@@ -9,8 +9,7 @@ useDefault = true
 [allowlist]
 description = "Documentation examples that are not real secrets"
 paths = [
-  ".env.example",
-  "**/.env.example",
+  '''(^|/)\.env\.example$''',
 ]
 regexes = [
   # placeholder-style env values shown in docs (sk-..., 0x..., your-token, etc.)
