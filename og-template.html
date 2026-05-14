@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; font-family: 'Inter', sans-serif; background: #06070A; color: #F8F8F4; }
+
+  body {
+    position: relative;
+    padding: 56px 72px;
+    background:
+      radial-gradient(70% 60% at 90% 0%, rgba(125,249,194,.18), transparent 70%),
+      radial-gradient(50% 80% at 0% 100%, rgba(61,232,160,.12), transparent 70%),
+      #06070A;
+  }
+
+  .grain {
+    position: absolute; inset: 0;
+    opacity: .05; mix-blend-mode: overlay; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .top {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 64px;
+  }
+  .logo {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: rgba(61,232,160,.1);
+    border: 1.5px solid rgba(61,232,160,.45);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo span { color: #7DF9C2; font-weight: 800; font-size: 22px; }
+  .brand { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .brand .muted { color: #6B7180; font-weight: 400; }
+
+  .badge {
+    margin-left: auto;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 16px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px;
+    background: rgba(61,232,160,.06);
+    border: 1px solid rgba(61,232,160,.25);
+    color: #7DF9C2; text-transform: uppercase; letter-spacing: .08em;
+  }
+  .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #3DE8A0; }
+
+  h1 {
+    font-size: 84px; font-weight: 800;
+    letter-spacing: -0.025em; line-height: 1.02;
+    margin-bottom: 26px;
+    background: linear-gradient(180deg, #F8F8F4 0%, #A4A89C 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  h1 .accent {
+    background: linear-gradient(90deg, #7DF9C2 0%, #3DE8A0 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .sub {
+    font-size: 26px; font-weight: 400; line-height: 1.4;
+    color: #A4A89C; max-width: 920px;
+    margin-bottom: 56px;
+  }
+  .sub strong { color: #F8F8F4; font-weight: 600; }
+
+  .pills {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    position: absolute; bottom: 56px; left: 72px; right: 72px;
+  }
+  .pill {
+    font-family: 'JetBrains Mono', monospace; font-size: 14px;
+    padding: 8px 16px; border-radius: 8px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    color: #A4A89C;
+  }
+  .pill.green {
+    background: rgba(61,232,160,.06);
+    border-color: rgba(61,232,160,.2);
+    color: #7DF9C2;
+  }
+
+  .domain {
+    position: absolute; bottom: 56px; right: 72px;
+    font-family: 'JetBrains Mono', monospace; font-size: 16px;
+    color: #6B7180;
+  }
+  .domain .arrow { color: #3DE8A0; margin-right: 6px; }
+
+  .currencies {
+    position: absolute; top: 200px; right: 72px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px; color: rgba(125,249,194,.35);
+    text-align: right; line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+  <div class="grain"></div>
+
+  <div class="top">
+    <div class="logo"><span>S</span></div>
+    <div class="brand">Sera <span class="muted">for Agents</span></div>
+    <div class="badge"><span class="dot"></span>v0.4.0 · open MCP</div>
+  </div>
+
+  <h1>Multi-currency settlement<br/>for <span class="accent">AI agents.</span></h1>
+
+  <div class="sub">
+    Quote, convert, and settle across <strong>40+ stablecoins</strong> and <strong>20+ fiat currencies</strong> from any agent host. Open MCP, x402 endpoint, working templates.
+  </div>
+
+  <div class="currencies">
+    USDC · EURC<br/>
+    XSGD · JPYC<br/>
+    MYRT · BRZ<br/>
+    MXNT · IDRT
+  </div>
+
+  <div class="pills">
+    <span class="pill green">32 tools live</span>
+    <span class="pill">Claude · Cursor · ChatGPT</span>
+    <span class="pill">OpenClaw · Hermes</span>
+    <span class="pill">x402 · MCP · EIP-712</span>
+  </div>
+</body>
+</html>
