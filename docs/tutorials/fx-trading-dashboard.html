@@ -146,7 +146,7 @@
       <h2 class="gradient-text">Steps</h2>
 
       <h3><span class="step-num">1</span>Backend route — proxy MCP calls</h3>
-      <p>Browser fetches read-only data from your Node backend. Your backend calls the MCP. Cache responses for 60s to avoid hammering Sera.</p>
+      <p>Browser fetches read-only data from your Node backend. Your backend calls the MCP. Cache responses for 60s — every page-load otherwise costs you a fresh upstream round-trip, and rates don't move that fast anyway.</p>
       <div class="codeblock">
         <div class="filename">api/sera-data.ts</div>
 <pre><code><span style="color:#A78BFA">import</span> { spawnSeraMcp } <span style="color:#A78BFA">from</span> <span style="color:#7DF9C2">'./mcpClient'</span>;
@@ -235,7 +235,7 @@
 
       <h2 class="gradient-text">Common gotchas</h2>
       <ul>
-        <li><strong>Cache properly.</strong> Calling <code>find_deals</code> on every page load will make Sera unhappy. 60s cache is cheap.</li>
+        <li><strong>Cache properly.</strong> <code>find_deals</code> probes ~60 markets in parallel — calling it on every page load is wasteful. Rates barely move in 60s; cache them.</li>
         <li><strong>External-mid sources are rate-limited.</strong> Frankfurter and friends throttle. The <code>multi_source_mid</code> tool already deals with this; don't bypass it.</li>
         <li><strong>Pairs change.</strong> Sera adds and removes pairs. Don't hardcode the universe — read it fresh from <code>get_markets</code> or <code>list_currencies</code>.</li>
       </ul>
